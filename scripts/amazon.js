@@ -68,8 +68,8 @@ add_to_cart_buttons.forEach((button) => {
           if (item.productId === productId){
             matchingItem = item;
           }
-      });
-      if (matchingItem){
+        });
+          if (matchingItem){
         matchingItem.quantity += 1;
       } else{
         const productPrice = button.dataset.productPrice;
@@ -82,6 +82,13 @@ add_to_cart_buttons.forEach((button) => {
         );
       };
       console.log(cart);
+      let cartCount = 0;
+      cart.forEach((item) => {
+        cartCount += item.quantity;
+      })
+      cartCountText = document.querySelector('.cart-quantity');
+      cartCountText.innerHTML = cartCount;
+
     })
 
 });
